@@ -1,0 +1,20 @@
+@use '../util' as *;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(40);
+
+  h1 {
+    font: var(--text-preset-1);
+    letter-spacing: rem(-1);
+    text-align: center;
+    max-width: rem(510);
+    margin-inline: auto;
+  }
+
+  @include breakpoint(largt) {
+    gap: rem(48);
+  }
+}

@@ -1,0 +1,22 @@
+@use '../util' as *;
+
+.form {
+  width: 100%;
+}
+
+textarea {
+  background-color: var(--textarea-bg);
+  color: var(--clr-text-secondary);
+  border: rem(2) solid var(--border-color);
+  padding: rem(16) rem(16) 0;
+  border-radius: rem(12);
+  font: var(--text-preset-3);
+  height: rem(200);
+  width: 100%;
+  overflow-y: auto;
+  resize: none;
+
+  @include breakpoint(medium) {
+    padding: rem(20) rem(20) 0;
+  }
+}

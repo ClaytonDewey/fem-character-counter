@@ -1,5 +1,5 @@
 import { useThemeStore } from './store/useThemeStore';
-import { Header } from './components';
+import { Header, Hero } from './components';
 
 const App = () => {
   const { theme } = useThemeStore();
@@ -7,9 +7,11 @@ const App = () => {
     <div className='app' data-theme={theme}>
       <div className='app-container'>
         <Header />
+        <main>
+          <Hero />
+        </main>
         <br />
-        <br /> Analyze your text in real-time. Start typing here… (or paste your
-        text) Exclude Spaces Set Character Limit Approx. reading time:{' '}
+        <br /> Exclude Spaces Set Character Limit Approx. reading time:{' '}
         {/* <!-- Insert number --> */} minutes
         {/* <!-- Insert number --> */}
         Total Characters

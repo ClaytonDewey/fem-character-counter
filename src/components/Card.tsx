@@ -2,7 +2,7 @@ import { Icon } from '../svg';
 
 interface CardProps {
   className?: string;
-  count: string | number;
+  count: number;
   text: string;
   iconName: string;
 }
@@ -13,10 +13,13 @@ const Card = ({
   text,
   iconName,
 }: CardProps) => {
+  let displayCount;
+  count < 10 ? (displayCount = `0${count}`) : (displayCount = `${count}`);
+
   return (
     <div className={`card ${className}`}>
       <div className='card-body'>
-        <h2 className='card-count'>{count}</h2>
+        <h2 className='card-count'>{displayCount}</h2>
         <p className='card-text'>{text}</p>
       </div>
       <div className='card-bg'>

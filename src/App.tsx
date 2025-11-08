@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useThemeStore } from './store/useThemeStore';
+import { Header } from './components';
 
-function App() {
+const App = () => {
+  const { theme } = useThemeStore();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app' data-theme={theme}>
+      <div className='app-container'>
+        <Header />
+        <br />
+        <br /> Analyze your text in real-time. Start typing here… (or paste your
+        text) Exclude Spaces Set Character Limit Approx. reading time:{' '}
+        {/* <!-- Insert number --> */} minutes
+        {/* <!-- Insert number --> */}
+        Total Characters
+        {/* <!-- Insert number --> */}
+        Word Count
+        {/* <!-- Insert number --> */}
+        Sentence Count Letter Density No characters found. Start typing to see
+        letter density.
+      </div>
     </div>
   );
-}
-
+};
 export default App;

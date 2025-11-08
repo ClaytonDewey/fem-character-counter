@@ -1,0 +1,10 @@
+export { default as IconCheck } from './Check';
+export { default as Icon } from './icon';
+export { default as IconInfo } from './Info';
+export { default as IconMoon } from './Moon';
+export { default as IconSun } from './Sun';
+export { default as IconLogoDark } from './LogoDark';
+export { default as IconLogoLight } from './LogoLight';
+export { default as IconPatternCharCount } from './PatternCharCount';
+export { default as IconPatternSentence } from './PatternSentence';
+export { default as IconPatternWordCount } from './PatternWordCount';

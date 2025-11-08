@@ -1,0 +1,26 @@
+@use '../util' as *;
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: rem(1) solid transparent;
+  background: none;
+  margin: 0;
+  padding: 0;
+
+  &-toggle {
+    border-radius: rem(6);
+    height: rem(32);
+    width: rem(32);
+    background-color: var(--btn-bg-color);
+  }
+
+  @include breakpoint(medium) {
+    &-toggle {
+      height: rem(40);
+      width: rem(40);
+    }
+  }
+}

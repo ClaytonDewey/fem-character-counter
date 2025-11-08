@@ -1,5 +1,5 @@
 import { useThemeStore } from './store/useThemeStore';
-import { CardContainer, Header, Hero } from './components';
+import { CardContainer, Header, Hero, ProgressBar } from './components';
 
 const App = () => {
   const { theme } = useThemeStore();
@@ -10,6 +10,9 @@ const App = () => {
         <main>
           <Hero />
           <CardContainer />
+          <div>
+            <ProgressBar width={40} />
+          </div>
         </main>
         <br />
         <br /> Exclude Spaces Set Character Limit Approx. reading time:{' '}

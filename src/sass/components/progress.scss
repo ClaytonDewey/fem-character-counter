@@ -1,0 +1,19 @@
+@use '../util' as *;
+
+.progress {
+  &-container {
+    width: 100%;
+    height: rem(12);
+    background-color: var(--progress-bg-color);
+    border-radius: rem(10);
+    overflow: hidden;
+  }
+
+  &-bar {
+    height: 100%;
+    background-color: var(--clr-purple-500);
+    width: 0;
+    transition: var(--transition);
+    border-radius: rem(10);
+  }
+}

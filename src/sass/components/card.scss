@@ -11,17 +11,26 @@
   color: var(--clr-neutral-900);
   overflow: hidden;
 
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+  }
+
   &-bg {
     position: absolute;
     top: 50%;
     right: -15%;
     transform: translateY(-50%);
-    z-index: 100;
 
     svg {
       height: rem(150);
       width: rem(150);
     }
+  }
+
+  &-body {
+    z-index: 1;
   }
 
   &-count {
@@ -44,6 +53,14 @@
   }
 
   @include breakpoint(medium) {
+    &-container {
+      flex-direction: row;
+    }
+
+    &-bg {
+      right: -30%;
+    }
+    width: 100%;
     height: rem(150);
   }
 }

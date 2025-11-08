@@ -14,7 +14,7 @@ const Card = ({
   iconName,
 }: CardProps) => {
   return (
-    <section className={`card ${className}`}>
+    <div className={`card ${className}`}>
       <div className='card-body'>
         <h2 className='card-count'>{count}</h2>
         <p className='card-text'>{text}</p>
@@ -22,7 +22,7 @@ const Card = ({
       <div className='card-bg'>
         <Icon name={iconName} />
       </div>
-    </section>
+    </div>
   );
 };
 export default Card;

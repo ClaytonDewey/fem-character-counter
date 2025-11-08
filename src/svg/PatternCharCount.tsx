@@ -1,4 +1,9 @@
-const IconPatternCharCount = () => {
+import { useId } from 'react';
+
+const IconCharCount = () => {
+  const id = useId();
+  const clipId = `clip-${id}`;
+  const maskId = `mask-${id}`;
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,9 +11,9 @@ const IconPatternCharCount = () => {
       height='150'
       fill='none'
       viewBox='0 0 150 150'>
-      <g clipPath='url(#a)'>
+      <g clipPath={`url(#${clipId})`}>
         <mask
-          id='b'
+          id={maskId}
           width='150'
           height='150'
           x='0'
@@ -17,7 +22,7 @@ const IconPatternCharCount = () => {
           style={{ maskType: 'luminance' }}>
           <path fill='#fff' d='M150 150V0H0v150h150Z' />
         </mask>
-        <g mask='url(#b)'>
+        <g mask={`url(#${maskId})`}>
           <path
             fill='#DEBAFC'
             fillRule='evenodd'
@@ -27,7 +32,7 @@ const IconPatternCharCount = () => {
         </g>
       </g>
       <defs>
-        <clipPath id='a'>
+        <clipPath id={clipId}>
           <path fill='#fff' d='M150 0v150H0V0z' />
         </clipPath>
       </defs>
@@ -35,4 +40,4 @@ const IconPatternCharCount = () => {
   );
 };
 
-export default IconPatternCharCount;
+export default IconCharCount;

@@ -1,4 +1,10 @@
-const IconPatternSentence = () => {
+import { useId } from 'react';
+
+const IconSentence = () => {
+  const id = useId();
+  const clipId = `clip-${id}`;
+  const maskId = `mask-${id}`;
+
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,9 +12,9 @@ const IconPatternSentence = () => {
       height='150'
       fill='none'
       viewBox='0 0 150 150'>
-      <g clipPath='url(#a)'>
+      <g clipPath={`url(#${clipId})`}>
         <mask
-          id='b'
+          id={maskId}
           width='150'
           height='150'
           x='0'
@@ -17,7 +23,7 @@ const IconPatternSentence = () => {
           style={{ maskType: 'luminance' }}>
           <path fill='#fff' d='M0 0v150h150V0H0Z' />
         </mask>
-        <g mask='url(#b)'>
+        <g mask={`url(#${maskId})`}>
           <path
             fill='#FA9A82'
             fillRule='evenodd'
@@ -27,7 +33,7 @@ const IconPatternSentence = () => {
         </g>
       </g>
       <defs>
-        <clipPath id='a'>
+        <clipPath id={clipId}>
           <path fill='#fff' d='M0 0h150v150H0z' />
         </clipPath>
       </defs>
@@ -35,4 +41,4 @@ const IconPatternSentence = () => {
   );
 };
 
-export default IconPatternSentence;
+export default IconSentence;

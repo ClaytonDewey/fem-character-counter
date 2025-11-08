@@ -6,7 +6,7 @@ const IconPatternWordCount = () => {
       height='150'
       fill='none'
       viewBox='0 0 150 150'>
-      <g clip-path='url(#a)'>
+      <g clipPath='url(#a)'>
         <mask
           id='b'
           width='150'
@@ -14,16 +14,15 @@ const IconPatternWordCount = () => {
           x='0'
           y='0'
           maskUnits='userSpaceOnUse'
-          // style='mask-type:luminance'
-        >
+          style={{ maskType: 'luminance' }}>
           <path fill='#fff' d='M150 0H0v150h150V0Z' />
         </mask>
         <g mask='url(#b)'>
           <path
             fill='#FFB844'
-            fill-rule='evenodd'
+            fillRule='evenodd'
             d='M0 0h50v50H0V0Zm100 50H50v50H0v50h50v-50h50v50h50v-50h-50V50Zm0 0h50V0h-50v50Z'
-            clip-rule='evenodd'
+            clipRule='evenodd'
           />
         </g>
       </g>

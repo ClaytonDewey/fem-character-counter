@@ -6,7 +6,7 @@ const IconMoon = () => {
       height='22'
       fill='none'
       viewBox='0 0 22 22'>
-      <g clip-path='url(#a)'>
+      <g clipPath='url(#a)'>
         <path
           stroke='#12131A'
           strokeLinecap='round'

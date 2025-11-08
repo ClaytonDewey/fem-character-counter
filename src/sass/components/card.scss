@@ -1,0 +1,49 @@
+@use '../util' as *;
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline-start: rem(20);
+  height: rem(130);
+  border-radius: rem(12);
+  color: var(--clr-neutral-900);
+  overflow: hidden;
+
+  &-bg {
+    position: absolute;
+    top: 50%;
+    right: -15%;
+    transform: translateY(-50%);
+    z-index: 100;
+
+    svg {
+      height: rem(150);
+      width: rem(150);
+    }
+  }
+
+  &-count {
+    font: var(--text-preset-1);
+  }
+  &-text {
+    font: var(--text-preset-3);
+  }
+
+  &-char-count {
+    background-color: var(--clr-purple-400);
+  }
+
+  &-word-count {
+    background-color: var(--clr-yellow-500);
+  }
+
+  &-sentence-count {
+    background-color: var(--clr-orange-500);
+  }
+
+  @include breakpoint(medium) {
+    height: rem(150);
+  }
+}

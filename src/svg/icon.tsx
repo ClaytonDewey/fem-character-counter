@@ -4,9 +4,9 @@ import {
   IconLogoDark,
   IconLogoLight,
   IconMoon,
-  IconPatternCharCount,
-  IconPatternSentence,
-  IconPatternWordCount,
+  IconCharCount,
+  IconSentence,
+  IconWordCount,
   IconSun,
 } from '.';
 
@@ -25,11 +25,11 @@ const Icon = ({ name }: { name: string }) => {
     case 'sun':
       return <IconSun />;
     case 'char-count':
-      return <IconPatternCharCount />;
+      return <IconCharCount />;
     case 'sentence':
-      return <IconPatternSentence />;
+      return <IconSentence />;
     case 'word-count':
-      return <IconPatternWordCount />;
+      return <IconWordCount />;
     default:
       return <IconLogoLight />;
   }

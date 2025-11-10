@@ -1,4 +1,5 @@
 import { Letter } from '.';
+import { FaChevronDown } from 'react-icons/fa6';
 import { useCountStore } from '../store/useCountStore';
 import { useState } from 'react';
 
@@ -46,7 +47,7 @@ const LetterDensity = () => {
             type='button'
             className={`btn btn-more ${isOpen ? 'open' : ''}`}
             onClick={handleClick}>
-            See more
+            See more <FaChevronDown />
           </button>
         </>
       )}

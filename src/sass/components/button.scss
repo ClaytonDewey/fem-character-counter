@@ -17,6 +17,11 @@
     background-color: var(--btn-bg-color);
   }
 
+  &-more {
+    color: var(--clr-text-primary);
+    font: var(--text-preset-3);
+  }
+
   @include breakpoint(medium) {
     &-toggle {
       height: rem(40);

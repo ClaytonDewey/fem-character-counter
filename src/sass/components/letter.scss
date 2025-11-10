@@ -19,6 +19,8 @@
   }
 
   &-count {
-    margin-inline-start: auto;
+    text-align: right;
+    width: rem(90);
+    flex-shrink: 0;
   }
 }

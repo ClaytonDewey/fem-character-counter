@@ -34,6 +34,7 @@
 
   // Theme
   --bg-color: var(--clr-neutral-0);
+  --bg-image: 'url("../../images/bg-light-theme.png")';
   --btn-bg-color: var(--clr-neutral-100);
   --progress-bg-color: var(--clr-neutral-100);
   --textarea-bg: var(--clr-neutral-100);
@@ -52,6 +53,7 @@
 
 [data-theme='dark'] {
   --bg-color: var(--clr-neutral-900);
+  --bg-image: url('../../images/bg-dark-theme.png');
   --btn-bg-color: var(--clr-neutral-700);
   --progress-bg-color: var(--clr-neutral-100);
   --textarea-bg: var(--clr-neutral-800);

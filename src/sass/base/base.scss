@@ -44,7 +44,8 @@ img {
 .app {
   padding: rem(16);
   min-height: 100vh;
-  background: var(--bg-color);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
   color: var(--clr-text-primary);
   transition: var(--transition);
 

@@ -1,23 +1,25 @@
 import { Card } from '.';
+import { useCountStore } from '../store/useCountStore';
 
 const CardContainer = () => {
+  const { characters, words, sentences } = useCountStore();
   return (
     <section className='card-container'>
       <Card
         className='card-char-count'
-        count={278}
+        count={characters}
         text='total characters'
         iconName='char-count'
       />
       <Card
         className='card-word-count'
-        count={39}
+        count={words}
         text='word count'
         iconName='word-count'
       />
       <Card
         className='card-sentence-count'
-        count={4}
+        count={sentences}
         text='sentence count'
         iconName='sentence'
       />

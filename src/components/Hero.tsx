@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Checkbox } from '.';
 import { useCountStore } from '../store/useCountStore';
 
 const Hero = () => {
   const {
     setCharacters,
+    excludeSpaces,
     setWords,
     setSentences,
     readingTime,
@@ -11,15 +13,21 @@ const Hero = () => {
     setExcludeSpaces,
   } = useCountStore();
 
+  const [textValue, setTextValue] = useState('');
+
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const wordsPerMinute = 200;
     const text = event.target.value;
+    setTextValue(text);
+
+    const noSpaces = text.replace(/\s+/g, '');
     const wordsArray = text.trim().split(/\s+/).filter(Boolean);
     const sentencesArray = text
       .split(/[.!?]+/)
       .map((s) => s.trim())
       .filter(Boolean);
-    setCharacters(text.length);
+
+    setCharacters(excludeSpaces ? noSpaces.length : text.length);
     setWords(wordsArray.length);
     setSentences(sentencesArray.length);
     setReadingTime(Math.ceil(wordsArray.length / wordsPerMinute));
@@ -27,6 +35,9 @@ const Hero = () => {
 
   const handleExcludeSpacesChange = (checked: boolean) => {
     setExcludeSpaces(checked);
+    // Recalculate character count with the current text
+    const noSpaces = textValue.replace(/\s+/g, '');
+    setCharacters(checked ? noSpaces.length : textValue.length);
   };
 
   const handleLimitCharactersChange = (checked: boolean) => {

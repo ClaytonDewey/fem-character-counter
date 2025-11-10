@@ -1,0 +1,12 @@
+@use '../util' as *;
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(32) rem(8);
+}
+
+.attribution {
+  //
+}

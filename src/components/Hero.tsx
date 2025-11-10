@@ -2,8 +2,14 @@ import { Checkbox } from '.';
 import { useCountStore } from '../store/useCountStore';
 
 const Hero = () => {
-  const { setCharacters, setWords, setSentences, readingTime, setReadingTime } =
-    useCountStore();
+  const {
+    setCharacters,
+    setWords,
+    setSentences,
+    readingTime,
+    setReadingTime,
+    setExcludeSpaces,
+  } = useCountStore();
 
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const wordsPerMinute = 200;
@@ -20,7 +26,11 @@ const Hero = () => {
   };
 
   const handleExcludeSpacesChange = (checked: boolean) => {
-    console.log('Exclude spaces:', checked);
+    setExcludeSpaces(checked);
+  };
+
+  const handleLimitCharactersChange = (checked: boolean) => {
+    // Implement character limit logic here if needed
   };
 
   return (
@@ -37,19 +47,19 @@ const Hero = () => {
             className='form-check'
             label='exclude spaces'
             id='spaces'
-            checked={false}
             onChange={handleExcludeSpacesChange}
           />
           <Checkbox
             className='form-check'
             label='set character limit'
             id='limitChar'
-            checked={false}
-            onChange={handleExcludeSpacesChange}
+            onChange={handleLimitCharactersChange}
           />
           <span>
-            Approx. reading time: {readingTime}{' '}
-            {readingTime <= 1 ? 'minute' : 'minutes'}
+            Approx. reading time:{' '}
+            {readingTime <= 1
+              ? `< ${readingTime} minute`
+              : `${readingTime} minutes`}
           </span>
         </div>
       </div>

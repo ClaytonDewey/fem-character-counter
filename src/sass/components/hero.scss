@@ -18,3 +18,11 @@
     gap: rem(48);
   }
 }
+
+.options {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: rem(12);
+}

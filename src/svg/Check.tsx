@@ -7,7 +7,7 @@ const IconCheck = () => {
       fill='none'
       viewBox='0 0 12 13'>
       <path
-        stroke='#12131A'
+        stroke='currentColor'
         strokeLinecap='round'
         strokeLinejoin='round'
         strokeWidth='1.667'

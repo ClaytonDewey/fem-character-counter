@@ -1,8 +1,9 @@
+import { Icon } from '../svg';
+
 interface CheckboxProps {
   className?: string;
   label: string;
   id: string;
-  checked: boolean;
   onChange: (checked: boolean) => void;
   disabled?: boolean;
 }
@@ -11,7 +12,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
   className,
   label,
   id,
-  checked,
   onChange,
   disabled,
 }) => {
@@ -24,11 +24,13 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <input
         id={id}
         type='checkbox'
-        checked={checked}
         className={className}
         onChange={handleChange}
         disabled={disabled}
       />
+      <span className='checkmark'>
+        <Icon name='check' />
+      </span>
       {label}
     </label>
   );

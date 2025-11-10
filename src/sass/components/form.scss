@@ -2,18 +2,49 @@
 
 .form {
   width: 100%;
+
+  &-check {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background-color: transparent;
+      color: var(--checkbox-border);
+    }
+  }
 }
 
 label {
+  position: relative;
   text-transform: capitalize;
   font: var(--text-preset-4);
   color: var(--clr-text-secondary);
+  margin-left: rem(26);
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: rem(-26);
+  height: rem(16);
+  width: rem(16);
+  border: rem(1) solid var(--checkbox-border);
+  border-radius: rem(4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent; // hide SVG stroke at rest
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 textarea {
   background-color: var(--textarea-bg);
   color: var(--clr-text-secondary);
   border: rem(2) solid var(--border-color);
+  margin-block-end: rem(16);
   padding: rem(16) rem(16) 0;
   border-radius: rem(12);
   font: var(--text-preset-3);
@@ -29,14 +60,4 @@ textarea {
   @include breakpoint(medium) {
     padding: rem(20) rem(20) 0;
   }
-}
-
-input[type='checkbox'] {
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: rem(4);
-  margin-right: rem(10);
-  width: rem(16);
-  height: rem(16);
-  vertical-align: middle;
 }

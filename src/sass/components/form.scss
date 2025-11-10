@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+label {
+  text-transform: capitalize;
+  font: var(--text-preset-4);
+  color: var(--clr-text-secondary);
+}
+
 textarea {
   background-color: var(--textarea-bg);
   color: var(--clr-text-secondary);
@@ -16,7 +22,21 @@ textarea {
   overflow-y: auto;
   resize: none;
 
+  &::placeholder {
+    color: var(--clr-text-secondary);
+  }
+
   @include breakpoint(medium) {
     padding: rem(20) rem(20) 0;
   }
+}
+
+input[type='checkbox'] {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: rem(4);
+  margin-right: rem(10);
+  width: rem(16);
+  height: rem(16);
+  vertical-align: middle;
 }

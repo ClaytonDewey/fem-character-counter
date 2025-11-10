@@ -1,0 +1,24 @@
+@use '../util' as *;
+
+.letters-container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+}
+
+.letter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(14);
+  font: var(--text-preset-4);
+
+  &-char {
+    text-transform: uppercase;
+    width: rem(16);
+  }
+
+  &-count {
+    margin-inline-start: auto;
+  }
+}

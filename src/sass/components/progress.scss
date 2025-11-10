@@ -3,7 +3,6 @@
 .progress {
   &-container {
     width: 100%;
-    max-width: rem(212);
     height: rem(12);
     background-color: var(--progress-bg-color);
     border-radius: rem(10);

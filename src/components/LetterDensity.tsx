@@ -28,9 +28,11 @@ const LetterDensity = () => {
         <p>No characters found. Start typing to see letter density.</p>
       ) : (
         <div className='letters-container'>
-          {Array.from(counts.entries()).map(([letter, count]) => (
-            <Letter key={letter} count={count} letter={letter} />
-          ))}
+          {Array.from(counts.entries())
+            .sort((a, b) => b[1] - a[1])
+            .map(([letter, count]) => (
+              <Letter key={letter} count={count} letter={letter} />
+            ))}
         </div>
       )}
     </section>

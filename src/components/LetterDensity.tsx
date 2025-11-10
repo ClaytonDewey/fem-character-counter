@@ -1,7 +1,9 @@
 import { Letter } from '.';
 import { useCountStore } from '../store/useCountStore';
+import { useState } from 'react';
 
 const LetterDensity = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { text } = useCountStore();
 
   const countLetters = (str: string): Map<string, number> => {
@@ -20,6 +22,10 @@ const LetterDensity = () => {
     return letterCounts;
   };
 
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   const counts = countLetters(text);
   return (
     <section className='density'>
@@ -27,13 +33,22 @@ const LetterDensity = () => {
       {text === '' ? (
         <p>No characters found. Start typing to see letter density.</p>
       ) : (
-        <div className='letters-container'>
-          {Array.from(counts.entries())
-            .sort((a, b) => b[1] - a[1])
-            .map(([letter, count]) => (
-              <Letter key={letter} count={count} letter={letter} />
-            ))}
-        </div>
+        <>
+          <div className='letters-container'>
+            {Array.from(counts.entries())
+              .sort((a, b) => b[1] - a[1])
+              .map(([letter, count]) => (
+                <Letter key={letter} count={count} letter={letter} />
+              ))}
+          </div>
+
+          <button
+            type='button'
+            className={`btn btn-more ${isOpen ? 'open' : ''}`}
+            onClick={handleClick}>
+            See more
+          </button>
+        </>
       )}
     </section>
   );

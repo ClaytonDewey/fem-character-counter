@@ -1,33 +1,32 @@
-import { useState } from 'react';
 import { Checkbox } from '.';
 import { useCountStore } from '../store/useCountStore';
 
 const Hero = () => {
   const {
-    setCharacters,
+    text,
     excludeSpaces,
+    readingTime,
+    setText,
+    setCharacters,
     setWords,
     setSentences,
-    readingTime,
     setReadingTime,
     setExcludeSpaces,
   } = useCountStore();
 
-  const [textValue, setTextValue] = useState('');
-
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const wordsPerMinute = 200;
-    const text = event.target.value;
-    setTextValue(text);
+    const textValue = event.target.value;
+    setText(textValue);
 
-    const noSpaces = text.replace(/\s+/g, '');
-    const wordsArray = text.trim().split(/\s+/).filter(Boolean);
-    const sentencesArray = text
+    const noSpaces = textValue.replace(/\s+/g, '');
+    const wordsArray = textValue.trim().split(/\s+/).filter(Boolean);
+    const sentencesArray = textValue
       .split(/[.!?]+/)
       .map((s) => s.trim())
       .filter(Boolean);
 
-    setCharacters(excludeSpaces ? noSpaces.length : text.length);
+    setCharacters(excludeSpaces ? noSpaces.length : textValue.length);
     setWords(wordsArray.length);
     setSentences(sentencesArray.length);
     setReadingTime(Math.ceil(wordsArray.length / wordsPerMinute));
@@ -36,8 +35,8 @@ const Hero = () => {
   const handleExcludeSpacesChange = (checked: boolean) => {
     setExcludeSpaces(checked);
     // Recalculate character count with the current text
-    const noSpaces = textValue.replace(/\s+/g, '');
-    setCharacters(checked ? noSpaces.length : textValue.length);
+    const noSpaces = text.replace(/\s+/g, '');
+    setCharacters(checked ? noSpaces.length : text.length);
   };
 
   const handleLimitCharactersChange = (checked: boolean) => {
@@ -66,7 +65,7 @@ const Hero = () => {
             id='limitChar'
             onChange={handleLimitCharactersChange}
           />
-          <span>
+          <span className='reading-time'>
             Approx. reading time:{' '}
             {readingTime <= 1
               ? `< ${readingTime} minute`

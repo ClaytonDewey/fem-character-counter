@@ -11,7 +11,8 @@
     width: 0;
 
     &:checked ~ .checkmark {
-      background-color: transparent;
+      background-color: var(--clr-purple-400);
+      border-color: var(--clr-purple-400);
       color: var(--checkbox-border);
     }
   }

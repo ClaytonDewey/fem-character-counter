@@ -14,7 +14,7 @@
     margin-inline: auto;
   }
 
-  @include breakpoint(largt) {
+  @include breakpoint(large) {
     gap: rem(48);
   }
 }
@@ -25,4 +25,14 @@
   flex-direction: column;
   justify-content: center;
   gap: rem(12);
+
+  @include breakpoint(large) {
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: rem(24);
+
+    .reading-time {
+      margin-left: auto;
+    }
+  }
 }

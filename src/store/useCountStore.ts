@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 interface CountState {
+  text: string;
   characters: number;
   excludeSpaces?: boolean;
   words: number;
@@ -9,6 +10,7 @@ interface CountState {
 }
 
 interface CountActions {
+  setText: (text: string) => void;
   setCharacters: (count: number) => void;
   setExcludeSpaces: (exclude: boolean) => void;
   setWords: (count: number) => void;
@@ -18,11 +20,13 @@ interface CountActions {
 }
 
 export const useCountStore = create<CountState & CountActions>((set) => ({
+  text: '',
   characters: 0,
   excludeSpaces: false,
   words: 0,
   sentences: 0,
   readingTime: 0,
+  setText: (text) => set({ text }),
   setCharacters: (count) => set({ characters: count }),
   setExcludeSpaces: (exclude) => set({ excludeSpaces: exclude }),
   setWords: (count) => set({ words: count }),

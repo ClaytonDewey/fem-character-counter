@@ -1,5 +1,11 @@
 import { useThemeStore } from './store/useThemeStore';
-import { CardContainer, Header, Hero } from './components';
+import {
+  CardContainer,
+  Footer,
+  Header,
+  Hero,
+  LetterDensity,
+} from './components';
 
 const App = () => {
   const { theme } = useThemeStore();
@@ -10,18 +16,9 @@ const App = () => {
         <main>
           <Hero />
           <CardContainer />
-          <div>{/* <ProgressBar width={40} /> */}</div>
+          <LetterDensity />
         </main>
-        <br />
-        <br /> Exclude Spaces Set Character Limit Approx. reading time:{' '}
-        {/* <!-- Insert number --> */} minutes
-        {/* <!-- Insert number --> */}
-        Total Characters
-        {/* <!-- Insert number --> */}
-        Word Count
-        {/* <!-- Insert number --> */}
-        Sentence Count Letter Density No characters found. Start typing to see
-        letter density.
+        <Footer />
       </div>
     </div>
   );

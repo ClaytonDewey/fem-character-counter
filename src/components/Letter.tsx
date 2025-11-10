@@ -1,4 +1,5 @@
 import ProgressBar from './ProgressBar';
+import { useCountStore } from '../store/useCountStore';
 
 interface LetterProps {
   letter: string;
@@ -6,11 +7,18 @@ interface LetterProps {
 }
 
 const Letter = ({ letter, count }: LetterProps) => {
+  const { characters } = useCountStore();
+
+  const percentage =
+    characters > 0 ? ((count / characters) * 100).toFixed(2) : 0;
+
   return (
     <div className='letter'>
       <span className='letter-char'>{letter}</span>
       <ProgressBar width={(count / 100) * 100} />
-      <span className='letter-count'>{count}</span>
+      <span className='letter-count'>
+        {count} ({percentage}%)
+      </span>
     </div>
   );
 };

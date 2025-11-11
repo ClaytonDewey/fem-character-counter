@@ -6,6 +6,19 @@
   gap: rem(12);
   margin-block: rem(20);
 }
+// TODO: Adjust spacing between top 5 and rest of letters
+
+.letters-slide {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+  &.open {
+    max-height: rem(2000); // Arbitrary large value to allow full expansion
+  }
+}
 
 .letter {
   display: flex;

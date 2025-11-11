@@ -35,10 +35,12 @@ const LetterDensity = () => {
             {topFive.map(([letter, count]) => (
               <Letter key={letter} count={count} letter={letter} />
             ))}
-            {isOpen &&
-              remaining.map(([letter, count]) => (
+
+            <div className={`letters-slide ${isOpen ? 'open' : ''}`}>
+              {remaining.map(([letter, count]) => (
                 <Letter key={letter} count={count} letter={letter} />
               ))}
+            </div>
           </div>
 
           {hasMoreThanFive && (

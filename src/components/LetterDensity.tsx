@@ -28,6 +28,11 @@ const LetterDensity = () => {
   };
 
   const counts = countLetters(text);
+  const sortedCounts = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+  const topFive = sortedCounts.slice(0, 5);
+  const remaining = sortedCounts.slice(5);
+  const hasMoreThanFive = sortedCounts.length > 5;
+
   return (
     <section className='density'>
       <h2>Letter Density</h2>
@@ -38,19 +43,23 @@ const LetterDensity = () => {
       ) : (
         <>
           <div className='letters-container'>
-            {Array.from(counts.entries())
-              .sort((a, b) => b[1] - a[1])
-              .map(([letter, count]) => (
+            {topFive.map(([letter, count]) => (
+              <Letter key={letter} count={count} letter={letter} />
+            ))}
+            {isOpen &&
+              remaining.map(([letter, count]) => (
                 <Letter key={letter} count={count} letter={letter} />
               ))}
           </div>
 
-          <button
-            type='button'
-            className={`btn btn-more ${isOpen ? 'open' : ''}`}
-            onClick={handleClick}>
-            See more <FaChevronDown />
-          </button>
+          {hasMoreThanFive && (
+            <button
+              type='button'
+              className={`btn btn-more ${isOpen ? 'open' : ''}`}
+              onClick={handleClick}>
+              {isOpen ? 'See less' : 'See more'} <FaChevronDown />
+            </button>
+          )}
         </>
       )}
     </section>

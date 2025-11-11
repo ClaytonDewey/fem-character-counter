@@ -89,15 +89,19 @@ const Hero = () => {
               onChange={handleLimitCharactersChange}
             />
             {limit && (
-              <input
-                type='number'
-                className='form-control'
-                name='text-limit'
-                id='text-limit'
-                min='1'
-                placeholder='Enter limit'
-                onChange={handleCharLimitChange}
-              />
+              <>
+                <label htmlFor='text-limit' className='sr-only'>
+                  Enter Limit
+                </label>
+                <input
+                  type='number'
+                  className='form-control'
+                  name='text-limit'
+                  id='text-limit'
+                  min='1'
+                  onChange={handleCharLimitChange}
+                />
+              </>
             )}
           </div>
           <span className='reading-time'>

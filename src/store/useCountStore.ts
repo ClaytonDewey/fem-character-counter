@@ -4,6 +4,8 @@ interface CountState {
   text: string;
   characters: number;
   excludeSpaces?: boolean;
+  charLimit?: number | null;
+  limit: boolean;
   words: number;
   sentences: number;
   readingTime: number;
@@ -13,6 +15,8 @@ interface CountActions {
   setText: (text: string) => void;
   setCharacters: (count: number) => void;
   setExcludeSpaces: (exclude: boolean) => void;
+  setCharLimit: (limit: number | null) => void;
+  setLimit: (limit: boolean) => void;
   setWords: (count: number) => void;
   setSentences: (count: number) => void;
   setReadingTime: (time: number) => void;
@@ -23,12 +27,16 @@ export const useCountStore = create<CountState & CountActions>((set) => ({
   text: '',
   characters: 0,
   excludeSpaces: false,
+  charLimit: null,
+  limit: false,
   words: 0,
   sentences: 0,
   readingTime: 0,
   setText: (text) => set({ text }),
   setCharacters: (count) => set({ characters: count }),
   setExcludeSpaces: (exclude) => set({ excludeSpaces: exclude }),
+  setCharLimit: (limit) => set({ charLimit: limit }),
+  setLimit: (limit) => set({ limit }),
   setWords: (count) => set({ words: count }),
   setSentences: (count) => set({ sentences: count }),
   setReadingTime: (time) => set({ readingTime: time }),

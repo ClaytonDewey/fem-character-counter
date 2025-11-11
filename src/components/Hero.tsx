@@ -1,16 +1,19 @@
-import { useState } from 'react';
 import { Checkbox } from '.';
 import { useCountStore } from '../store/useCountStore';
 
-const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false);
+const WORDS_PER_MINUTE = 200;
 
+const Hero = () => {
   const {
     text,
     excludeSpaces,
     readingTime,
+    charLimit,
+    limit,
     setText,
     setCharacters,
+    setCharLimit,
+    setLimit,
     setWords,
     setSentences,
     setReadingTime,
@@ -18,7 +21,6 @@ const Hero = () => {
   } = useCountStore();
 
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const wordsPerMinute = 200;
     const textValue = event.target.value;
     setText(textValue);
 
@@ -32,7 +34,7 @@ const Hero = () => {
     setCharacters(excludeSpaces ? noSpaces.length : textValue.length);
     setWords(wordsArray.length);
     setSentences(sentencesArray.length);
-    setReadingTime(Math.ceil(wordsArray.length / wordsPerMinute));
+    setReadingTime(Math.ceil(wordsArray.length / WORDS_PER_MINUTE));
   };
 
   const handleExcludeSpacesChange = (checked: boolean) => {
@@ -43,7 +45,19 @@ const Hero = () => {
   };
 
   const handleLimitCharactersChange = (checked: boolean) => {
-    checked ? setIsVisible(true) : setIsVisible(false);
+    setLimit(checked);
+    if (!checked) {
+      setCharLimit(null);
+    }
+  };
+
+  const handleCharLimitChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const limitValue = parseInt(event.target.value, 10);
+    if (!isNaN(limitValue) && limitValue > 0) {
+      setCharLimit(limitValue);
+    }
   };
 
   return (
@@ -51,9 +65,12 @@ const Hero = () => {
       <h1>Analyze your text in real-time.</h1>
       <div className='form'>
         <textarea
+          maxLength={charLimit || undefined}
           name='text'
           placeholder='Start typing here… (or paste your text)'
-          onChange={handleTextChange}></textarea>
+          onChange={handleTextChange}
+          value={text}
+        />
 
         <div className='options'>
           <div className='form-group'>
@@ -71,19 +88,24 @@ const Hero = () => {
               id='limitChar'
               onChange={handleLimitCharactersChange}
             />
-            {isVisible && (
+            {limit && (
               <input
                 type='number'
                 className='form-control'
                 name='text-limit'
                 id='text-limit'
+                min='1'
+                placeholder='Enter limit'
+                onChange={handleCharLimitChange}
               />
             )}
           </div>
           <span className='reading-time'>
             Approx. reading time:{' '}
-            {readingTime <= 1
-              ? `< ${readingTime} minute`
+            {readingTime === 0
+              ? '< 1 minute'
+              : readingTime === 1
+              ? '1 minute'
               : `${readingTime} minutes`}
           </span>
         </div>

@@ -41,6 +41,10 @@ img {
   white-space: nowrap;
 }
 
+a {
+  color: var(--clr-orange-500);
+}
+
 .app {
   padding: rem(16);
   min-height: 100vh;

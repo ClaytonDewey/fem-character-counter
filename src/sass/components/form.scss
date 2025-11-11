@@ -3,6 +3,33 @@
 .form {
   width: 100%;
 
+  &-group {
+    display: flex;
+    align-items: center;
+    height: rem(21);
+    gap: rem(10);
+  }
+
+  &-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: rem(29);
+    width: rem(55);
+    background-color: transparent;
+    color: var(--clr-text-secondary);
+    border: rem(1) solid var(--clr-neutral-600);
+    border-radius: rem(6);
+    font: var(--text-preset-4);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
   &-check {
     position: absolute;
     opacity: 0;
@@ -13,7 +40,7 @@
     &:checked ~ .checkmark {
       background-color: var(--clr-purple-400);
       border-color: var(--clr-purple-400);
-      color: var(--checkbox-border);
+      color: var(--clr-neutral-900);
     }
   }
 }
@@ -28,7 +55,7 @@ label {
 
 .checkmark {
   position: absolute;
-  top: 0;
+  top: rem(2.5);
   left: rem(-26);
   height: rem(16);
   width: rem(16);

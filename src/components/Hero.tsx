@@ -1,5 +1,6 @@
 import { Checkbox } from '.';
 import { useCountStore } from '../store/useCountStore';
+import { Icon } from '../svg';
 
 const WORDS_PER_MINUTE = 200;
 
@@ -65,12 +66,20 @@ const Hero = () => {
       <h1>Analyze your text in real-time.</h1>
       <div className='form'>
         <textarea
+          className={`${charLimit && text.length >= charLimit ? 'error' : ''}`}
           maxLength={charLimit || undefined}
           name='text'
           placeholder='Start typing here… (or paste your text)'
           onChange={handleTextChange}
           value={text}
         />
+
+        {charLimit && text.length >= charLimit && (
+          <p className='error'>
+            <Icon name='info' />
+            Limit reached! Your text exceeds {charLimit} characters.
+          </p>
+        )}
 
         <div className='options'>
           <div className='form-group'>

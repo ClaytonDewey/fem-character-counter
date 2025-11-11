@@ -20,6 +20,19 @@
   &-more {
     color: var(--clr-text-primary);
     font: var(--text-preset-3);
+
+    svg {
+      margin-inline-start: rem(8);
+      width: rem(10);
+      transform: rotate(0);
+      transition: var(--transition);
+    }
+
+    &.open {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
   }
 
   @include breakpoint(medium) {

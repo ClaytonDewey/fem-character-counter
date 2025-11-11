@@ -54,6 +54,11 @@ textarea {
   overflow-y: auto;
   resize: none;
 
+  &:focus {
+    outline: rem(1) solid var(--clr-purple-500);
+    box-shadow: 0 0 rem(10) 0 var(--clr-purple-500);
+  }
+
   &::placeholder {
     color: var(--clr-text-secondary);
   }

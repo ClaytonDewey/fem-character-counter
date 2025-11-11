@@ -8,5 +8,33 @@
 }
 
 .attribution {
-  //
+  a:link {
+    position: relative;
+    color: var(--link-text);
+    text-decoration: none;
+    padding-block-end: rem(3);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      border-bottom: rem(2) solid var(--link-text);
+      transition: var(--transition);
+    }
+
+    &::before {
+      right: 50%;
+    }
+
+    &::after {
+      left: 50%;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: 50%;
+    }
+  }
 }

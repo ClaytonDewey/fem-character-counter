@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Checkbox } from '.';
 import { useCountStore } from '../store/useCountStore';
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
   const {
     text,
     excludeSpaces,
@@ -40,7 +43,7 @@ const Hero = () => {
   };
 
   const handleLimitCharactersChange = (checked: boolean) => {
-    // Implement character limit logic here if needed
+    checked ? setIsVisible(true) : setIsVisible(false);
   };
 
   return (
@@ -53,18 +56,30 @@ const Hero = () => {
           onChange={handleTextChange}></textarea>
 
         <div className='options'>
-          <Checkbox
-            className='form-check'
-            label='exclude spaces'
-            id='spaces'
-            onChange={handleExcludeSpacesChange}
-          />
-          <Checkbox
-            className='form-check'
-            label='set character limit'
-            id='limitChar'
-            onChange={handleLimitCharactersChange}
-          />
+          <div className='form-group'>
+            <Checkbox
+              className='form-check'
+              label='exclude spaces'
+              id='spaces'
+              onChange={handleExcludeSpacesChange}
+            />
+          </div>
+          <div className='form-group'>
+            <Checkbox
+              className='form-check'
+              label='set character limit'
+              id='limitChar'
+              onChange={handleLimitCharactersChange}
+            />
+            {isVisible && (
+              <input
+                type='number'
+                className='form-control'
+                name='text-limit'
+                id='text-limit'
+              />
+            )}
+          </div>
           <span className='reading-time'>
             Approx. reading time:{' '}
             {readingTime <= 1

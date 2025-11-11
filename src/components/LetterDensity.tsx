@@ -32,7 +32,9 @@ const LetterDensity = () => {
     <section className='density'>
       <h2>Letter Density</h2>
       {text === '' ? (
-        <p>No characters found. Start typing to see letter density.</p>
+        <div className='letters-container'>
+          <p>No characters found. Start typing to see letter density.</p>
+        </div>
       ) : (
         <>
           <div className='letters-container'>

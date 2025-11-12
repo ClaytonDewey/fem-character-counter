@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { Icon } from '../svg';
 
 interface CheckboxProps {
   className?: string;
   label: string;
   id: string;
+  checked: boolean;
   onChange: (checked: boolean) => void;
   disabled?: boolean;
 }
@@ -13,15 +13,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
   className,
   label,
   id,
+  checked,
   onChange,
   disabled,
 }) => {
-  const [isChecked, setIsChecked] = useState(false);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const checked = event.target.checked;
-    setIsChecked(checked);
-    onChange(checked);
+    onChange(event.target.checked);
   };
 
   return (
@@ -29,10 +26,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <input
         id={id}
         type='checkbox'
-        className={isChecked ? `${className} checked` : className}
+        className={checked ? `${className} checked` : className}
         onChange={handleChange}
         disabled={disabled}
-        checked={isChecked}
+        checked={checked}
       />
       <span className='checkmark'>
         <Icon name='check' />

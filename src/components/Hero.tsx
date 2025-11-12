@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Checkbox } from '.';
 import { useCountStore } from '../store/useCountStore';
 import { Icon } from '../svg';
@@ -5,6 +6,8 @@ import { Icon } from '../svg';
 const WORDS_PER_MINUTE = 200;
 
 const Hero = () => {
+  const [isExcludeChecked, setIsExcludeChecked] = useState(false);
+  const [isLimitChecked, setIsLimitChecked] = useState(false);
   const {
     text,
     excludeSpaces,
@@ -43,10 +46,12 @@ const Hero = () => {
     // Recalculate character count with the current text
     const noSpaces = text.replace(/\s+/g, '');
     setCharacters(checked ? noSpaces.length : text.length);
+    setIsExcludeChecked(checked);
   };
 
   const handleLimitCharactersChange = (checked: boolean) => {
     setLimit(checked);
+    setIsLimitChecked(checked);
     if (!checked) {
       setCharLimit(null);
     }
@@ -102,6 +107,7 @@ const Hero = () => {
         <div className='options'>
           <div className='form-group'>
             <Checkbox
+              checked={isExcludeChecked}
               className='form-check'
               label='exclude spaces'
               id='spaces'
@@ -110,6 +116,7 @@ const Hero = () => {
           </div>
           <div className='form-group'>
             <Checkbox
+              checked={isLimitChecked}
               className='form-check'
               label='set character limit'
               id='limitChar'

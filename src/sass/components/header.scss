@@ -7,12 +7,20 @@
   margin-block-end: rem(40);
   height: rem(64);
 
+  &-logo {
+    height: rem(30);
+  }
+
   &-logo svg {
     width: rem(185.4);
     height: rem(30);
   }
 
   @include breakpoint(medium) {
+    &-logo {
+      height: rem(40);
+    }
+
     &-logo svg {
       width: rem(245.53);
       height: rem(40);
@@ -22,5 +30,9 @@
   @include breakpoint(large) {
     height: rem(44);
     margin-block-end: rem(48);
+
+    &-logo {
+      height: rem(44);
+    }
   }
 }

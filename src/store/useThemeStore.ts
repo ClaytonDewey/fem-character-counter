@@ -2,16 +2,16 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 interface ThemeState {
-  theme: 'light' | 'dark';
+  theme: 'dark' | 'light';
   toggleTheme: () => void;
 }
 
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      theme: 'light',
+      theme: 'dark',
       toggleTheme: () =>
-        set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
+        set((state) => ({ theme: state.theme === 'dark' ? 'light' : 'dark' })),
     }),
     {
       name: 'theme',

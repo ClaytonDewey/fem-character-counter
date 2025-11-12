@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className='footer'>
-      <div className='attribution'>
+      <p className='attribution'>
         Challenge by{' '}
         <a
           href='https://www.frontendmentor.io/challenges/character-counter-znSgeWs_i6'
@@ -17,7 +17,7 @@ const Footer = () => {
           Clayton Dewey
         </a>
         .
-      </div>
+      </p>
     </footer>
   );
 };

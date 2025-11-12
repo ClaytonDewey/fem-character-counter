@@ -5,6 +5,7 @@ const CardContainer = () => {
   const { characters, words, sentences } = useCountStore();
   return (
     <section className='card-container'>
+      <h2 className='sr-only'>View Your Stats</h2>
       <Card
         className='card-char-count'
         count={characters}

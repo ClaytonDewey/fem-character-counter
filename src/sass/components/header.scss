@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: rem(40);
+  margin-block-end: rem(40);
   height: rem(64);
 
   &-logo svg {
@@ -21,6 +21,6 @@
 
   @include breakpoint(large) {
     height: rem(44);
-    margin-bottom: rem(48);
+    margin-block-end: rem(48);
   }
 }

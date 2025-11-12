@@ -4,7 +4,7 @@ const Footer = () => {
       <div className='attribution'>
         Challenge by{' '}
         <a
-          href='https://www.frontendmentor.io?ref=challenge'
+          href='https://www.frontendmentor.io/challenges/character-counter-znSgeWs_i6'
           target='_blank'
           rel='noreferrer'>
           Frontend Mentor

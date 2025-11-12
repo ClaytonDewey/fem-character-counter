@@ -43,6 +43,7 @@
   --clr-text-primary: var(--clr-neutral-900);
   --clr-text-secondary: var(--clr-neutral-700);
   --link-text: var(--clr-orange-800);
+  --error: var(--clr-orange-800);
 
   // Util
   --transition: all 0.3s ease-in-out;
@@ -63,4 +64,5 @@
   --clr-text-primary: var(--clr-neutral-100);
   --clr-text-secondary: var(--clr-neutral-200);
   --link-text: var(--clr-orange-500);
+  --error: var(--clr-orange-500);
 }

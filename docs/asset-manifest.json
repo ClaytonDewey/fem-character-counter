@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/fem-character-counter/static/css/main.be3d620b.css",
-    "main.js": "/fem-character-counter/static/js/main.1644541d.js",
+    "main.js": "/fem-character-counter/static/js/main.c7e423f4.js",
     "static/js/453.1a5bb42f.chunk.js": "/fem-character-counter/static/js/453.1a5bb42f.chunk.js",
     "static/media/bg-dark-theme.png": "/fem-character-counter/static/media/bg-dark-theme.a403337a9c3368cd0946.png",
     "index.html": "/fem-character-counter/index.html",
     "main.be3d620b.css.map": "/fem-character-counter/static/css/main.be3d620b.css.map",
-    "main.1644541d.js.map": "/fem-character-counter/static/js/main.1644541d.js.map",
+    "main.c7e423f4.js.map": "/fem-character-counter/static/js/main.c7e423f4.js.map",
     "453.1a5bb42f.chunk.js.map": "/fem-character-counter/static/js/453.1a5bb42f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.be3d620b.css",
-    "static/js/main.1644541d.js"
+    "static/js/main.c7e423f4.js"
   ]
 }

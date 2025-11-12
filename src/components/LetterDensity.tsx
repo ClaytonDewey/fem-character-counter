@@ -31,16 +31,17 @@ const LetterDensity = () => {
         </div>
       ) : (
         <>
-          <div className='letters-container'>
+          <div
+            className={`${hasMoreThanFive ? 'mb-12' : ''} letters-container`}>
             {topFive.map(([letter, count]) => (
               <Letter key={letter} count={count} letter={letter} />
             ))}
+          </div>
 
-            <div className={`letters-slide ${isOpen ? 'open' : ''}`}>
-              {remaining.map(([letter, count]) => (
-                <Letter key={letter} count={count} letter={letter} />
-              ))}
-            </div>
+          <div className={`letters-slide ${isOpen ? 'open' : ''}`}>
+            {remaining.map(([letter, count]) => (
+              <Letter key={letter} count={count} letter={letter} />
+            ))}
           </div>
 
           {hasMoreThanFive && (

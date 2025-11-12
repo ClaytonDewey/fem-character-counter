@@ -17,6 +17,7 @@
   transition: var(--transition);
   &.open {
     max-height: rem(2000); // Arbitrary large value to allow full expansion
+    margin-block-end: rem(20);
   }
 }
 

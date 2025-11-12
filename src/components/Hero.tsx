@@ -61,11 +61,14 @@ const Hero = () => {
     }
   };
 
+  // Count words by splitting text on whitespace and filtering out empty strings
+  const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+
   let readingTimeText = '';
-  if (text.length === 0) {
+  if (wordCount === 0) {
     readingTimeText = '0 minute';
-  } else if (text.length < WORDS_PER_MINUTE - 1) {
-    readingTimeText = '<1 minute';
+  } else if (wordCount < WORDS_PER_MINUTE) {
+    readingTimeText = '<1 minute'; // Less than one minute reading time
   } else if (readingTime === 1) {
     readingTimeText = '1 minute';
   } else {
@@ -119,6 +122,7 @@ const Hero = () => {
                   name='text-limit'
                   id='text-limit'
                   min='1'
+                  value={charLimit || ''}
                   onChange={handleCharLimitChange}
                 />
               </>

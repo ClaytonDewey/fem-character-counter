@@ -15,7 +15,7 @@ const Letter = ({ letter, count }: LetterProps) => {
   return (
     <div className='letter'>
       <span className='letter-char'>{letter}</span>
-      <ProgressBar width={(count / 100) * 100} />
+      <ProgressBar width={Number(percentage)} />
       <span className='letter-count'>
         {count} ({percentage}%)
       </span>

@@ -19,7 +19,7 @@ const Card = ({
   return (
     <div className={`card ${className}`}>
       <div className='card-body'>
-        <h2 className='card-count'>{displayCount}</h2>
+        <h3 className='card-count'>{displayCount}</h3>
         <p className='card-text'>{text}</p>
       </div>
       <div className='card-bg'>

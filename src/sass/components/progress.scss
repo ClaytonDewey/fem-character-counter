@@ -15,5 +15,9 @@
     width: 0;
     transition: var(--transition);
     border-radius: rem(10);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 }

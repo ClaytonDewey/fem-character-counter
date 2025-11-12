@@ -62,8 +62,8 @@ img {
   @include breakpoint(large) {
     padding: rem(32);
   }
-}
 
-.mb-12 {
-  margin-block-end: rem(12) !important;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }

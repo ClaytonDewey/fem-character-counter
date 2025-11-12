@@ -22,6 +22,10 @@
       width: 0;
       border-bottom: rem(2) solid var(--link-text);
       transition: var(--transition);
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     &::before {

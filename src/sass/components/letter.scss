@@ -5,8 +5,11 @@
   flex-direction: column;
   gap: rem(12);
   margin-block: rem(20);
+
+  &.mb-12 {
+    margin-block-end: rem(12);
+  }
 }
-// TODO: Adjust spacing between top 5 and rest of letters
 
 .letters-slide {
   display: flex;
@@ -15,6 +18,11 @@
   max-height: 0;
   overflow: hidden;
   transition: var(--transition);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   &.open {
     max-height: rem(2000); // Arbitrary large value to allow full expansion
     margin-block-end: rem(20);

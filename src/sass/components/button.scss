@@ -26,6 +26,10 @@
       width: rem(10);
       transform: rotate(0);
       transition: var(--transition);
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     &.open {

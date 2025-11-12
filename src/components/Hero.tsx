@@ -79,7 +79,11 @@ const Hero = () => {
     <section className='hero'>
       <h1>Analyze your text in real-time.</h1>
       <div className='form'>
+        <label htmlFor='text-input' className='sr-only'>
+          Text to count
+        </label>
         <textarea
+          id='text-input'
           className={`${charLimit && text.length >= charLimit ? 'error' : ''}`}
           maxLength={charLimit || undefined}
           name='text'

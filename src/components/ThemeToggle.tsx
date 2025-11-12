@@ -7,10 +7,11 @@ const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useThemeStore();
 
   return (
-    <Button type='button' className='btn btn-toggle' onClick={toggleTheme}>
-      <span className='sr-only'>
-        Switch to {theme === 'light' ? 'dark' : 'light'} mode
-      </span>
+    <Button
+      type='button'
+      className='btn btn-toggle'
+      onClick={toggleTheme}
+      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
       <Icon name={theme === 'light' ? 'moon' : 'sun'} />
     </Button>
   );

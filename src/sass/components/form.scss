@@ -42,6 +42,25 @@
     height: 0;
     width: 0;
 
+    ~ .checkmark {
+      position: absolute;
+      top: rem(2.5);
+      left: rem(-26);
+      height: rem(16);
+      width: rem(16);
+      border: rem(1) solid var(--checkbox-border);
+      border-radius: rem(4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: transparent; // hide SVG stroke at rest
+      transition: color 0.2s ease, background-color 0.2s ease;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+
     &:checked ~ .checkmark {
       background-color: var(--clr-purple-400);
       border-color: var(--clr-purple-400);
@@ -70,25 +89,6 @@ label {
   font: var(--text-preset-4);
   color: var(--clr-text-secondary);
   margin-inline-start: rem(26);
-}
-
-.checkmark {
-  position: absolute;
-  top: rem(2.5);
-  left: rem(-26);
-  height: rem(16);
-  width: rem(16);
-  border: rem(1) solid var(--checkbox-border);
-  border-radius: rem(4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: transparent; // hide SVG stroke at rest
-  transition: color 0.2s ease, background-color 0.2s ease;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 textarea {

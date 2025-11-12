@@ -63,4 +63,10 @@
     width: 100%;
     height: rem(150);
   }
+
+  @include breakpoint(large) {
+    &-bg {
+      right: -10%;
+    }
+  }
 }

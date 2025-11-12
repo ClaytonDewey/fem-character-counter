@@ -61,6 +61,17 @@ const Hero = () => {
     }
   };
 
+  let readingTimeText = '';
+  if (text.length === 0) {
+    readingTimeText = '0 minute';
+  } else if (text.length < WORDS_PER_MINUTE - 1) {
+    readingTimeText = '<1 minute';
+  } else if (readingTime === 1) {
+    readingTimeText = '1 minute';
+  } else {
+    readingTimeText = `${readingTime} minutes`;
+  }
+
   return (
     <section className='hero'>
       <h1>Analyze your text in real-time.</h1>
@@ -114,12 +125,7 @@ const Hero = () => {
             )}
           </div>
           <span className='reading-time'>
-            Approx. reading time:{' '}
-            {readingTime === 0
-              ? '< 1 minute'
-              : readingTime === 1
-              ? '1 minute'
-              : `${readingTime} minutes`}
+            Approx. reading time: {readingTimeText}
           </span>
         </div>
       </div>
